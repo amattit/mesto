@@ -1,0 +1,7 @@
+.header__divider {
+  background-color: #545454;
+  height: 2px;
+  max-width: 100%;
+  opacity: .7;
+  margin: 41px 0 0 0;
+}
