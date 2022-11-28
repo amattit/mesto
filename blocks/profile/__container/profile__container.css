@@ -1,4 +1,11 @@
 .ptofile__container {
-  /* display: flex; */
   margin: 0 0 0 30px;
+}
+
+@media (max-width: 768px) {
+  .ptofile__container {
+    align-self: center;
+    max-width: 282px;
+    margin-left: 0;
+  }
 }

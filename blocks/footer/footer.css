@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 66px 0 60px;
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 48px 0 36px;
+  }
+}
+
+.footer__title {
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+  margin: 0;
+  font-weight: normal;
+}
+
+@media (max-width: 768px) {
+  .footer__title {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

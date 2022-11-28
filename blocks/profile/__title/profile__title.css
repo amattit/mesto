@@ -5,3 +5,12 @@
   color: #fff;
   margin: 0;
 }
+
+
+@media (max-width: 768px) {
+  .profile__title {
+    font-size: 27px;
+    line-height: 33px;
+    text-align: center;
+  }
+}
