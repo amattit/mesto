@@ -7,33 +7,33 @@ const places = [
   {
     title: 'Карачаевск',
     reaction: 'like',
-    imagePath: './images/karachaevsk.png',
+    imagePath: 'https://amattit.github.io/mesto/images/karachaevsk.png',
     alt: ''
   },
   {
     title: 'Гора&nbsp;Эльбрус',
     reaction: 'like',
-    imagePath: './images/elbrus.png'
+    imagePath: 'https://amattit.github.io/mesto/images/elbrus.png'
   },
   {
     title: 'Домбай',
     reaction: 'like',
-    imagePath: './images/dombay.png'
+    imagePath: 'https://amattit.github.io/mesto/images/dombay.png'
   },
   {
     title: 'Гора&nbsp;Эльбрус',
     reaction: 'like',
-    imagePath: './images/elbrus.png'
+    imagePath: 'https://amattit.github.io/mesto/images/elbrus.png'
   },
   {
     title: 'Домбай',
     reaction: 'like',
-    imagePath: './images/dombay.png'
+    imagePath: 'https://amattit.github.io/mesto/images/dombay.png'
   },
   {
     title: 'Карачаево&nbsp;-&nbsp;Черкесия',
     reaction: 'like',
-    imagePath: './images/karachaevsk.png'
+    imagePath: 'https://amattit.github.io/mesto/images/karachaevsk.png'
   },
 ]
 
