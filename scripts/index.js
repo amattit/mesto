@@ -7,33 +7,33 @@ const places = [
   {
     title: 'Карачаевск',
     reaction: 'like',
-    imagePath: '../images/karachaevsk.png',
+    imagePath: './images/karachaevsk.png',
     alt: ''
   },
   {
     title: 'Гора&nbsp;Эльбрус',
     reaction: 'like',
-    imagePath: '../images/elbrus.png'
+    imagePath: './images/elbrus.png'
   },
   {
     title: 'Домбай',
     reaction: 'like',
-    imagePath: '../images/dombay.png'
+    imagePath: './images/dombay.png'
   },
   {
     title: 'Гора&nbsp;Эльбрус',
     reaction: 'like',
-    imagePath: '../images/elbrus.png'
+    imagePath: './images/elbrus.png'
   },
   {
     title: 'Домбай',
     reaction: 'like',
-    imagePath: '../images/dombay.png'
+    imagePath: './images/dombay.png'
   },
   {
     title: 'Карачаево&nbsp;-&nbsp;Черкесия',
     reaction: 'like',
-    imagePath: '../images/karachaevsk.png'
+    imagePath: './images/karachaevsk.png'
   },
 ]
 
