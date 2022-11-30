@@ -2,7 +2,7 @@
   margin: 0 0 0 30px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 426px) {
   .ptofile__container {
     align-self: center;
     max-width: 282px;
