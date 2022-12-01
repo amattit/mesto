@@ -1,4 +1,6 @@
-const profile = {
+
+// Профиль
+let profile = {
   title: 'Жак-Ив Кусто',
   subtitle: 'Исследователь океана'
 }
@@ -37,11 +39,15 @@ const places = [
   },
 ]
 
-let username = document.querySelector('.profile__title')
-let profession = document.querySelector('.profile__subtitle')
+function setUserData() {
+  let username = document.querySelector('.profile__title')
+  let profession = document.querySelector('.profile__subtitle')
 
-username.innerText = profile.title
-profession.innerText = profile.subtitle
+  username.innerText = profile.title
+  profession.innerText = profile.subtitle
+}
+
+setUserData()
 
 let photoGrid = document.querySelector('.gallery__items')
 
@@ -54,5 +60,36 @@ photoGrid.innerHTML = places.map(place => `
     </div>
   </li>
 `)
-.join('')
+  .join('')
 
+function handleFormSubmit(evt) {
+  evt.preventDefault();
+  profile.title = nameInput.value
+  profile.subtitle = jobInput.value
+  setUserData()
+  closePopup()
+}
+
+let formElement = document.querySelector('.popup__form')
+let nameInput = formElement.querySelector('.popup__input[name="title"]')
+let jobInput = formElement.querySelector('.popup__input[name="subtitle"]')
+
+formElement.addEventListener('submit', handleFormSubmit)
+
+function showPopup() {
+  let popup = document.querySelector('.popup')
+  popup.classList.add('popup_opened')
+  nameInput.value = profile.title;
+  jobInput.value = profile.subtitle;
+}
+
+function closePopup() {
+  let popup = document.querySelector('.popup')
+  popup.classList.remove('popup_opened')
+}
+
+let editButton = document.querySelector('.profile__edit-button')
+editButton.addEventListener('click', showPopup)
+
+let closePopupButton = document.querySelector('.popup__close')
+closePopupButton.addEventListener('click', closePopup)

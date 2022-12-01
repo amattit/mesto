@@ -1,0 +1,6 @@
+.profile__title-container {
+  display: flex;
+  align-items: baseline;
+  column-gap: 18px;
+  padding-right: 1px;
+}

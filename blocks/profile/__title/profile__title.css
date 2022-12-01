@@ -5,8 +5,9 @@
   color: #fff;
   margin: 0;
   flex-shrink: 10;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-
 
 @media (max-width: 426px) {
   .profile__title {
@@ -14,29 +15,4 @@
     line-height: 33px;
     text-align: center;
   }
-}
-
-.edit-button {
-  width: 24px;
-  height: 24px;
-  background: none;
-  background-image: url(../../../images/editButton.svg);
-  border: none;
-  background-size: cover;
-  /* padding: 0; */
-}
-
-@media (max-width: 426px) {
-  .edit-button {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-.profile__title-container {
-  display: flex;
-  align-items: baseline;
-  column-gap: 18px;
-  padding-right: 1px;
-
 }
