@@ -1,5 +1,7 @@
 .ptofile__container {
+  display: flexbox;
   margin: 0 0 0 30px;
+  flex-grow: 10;
 }
 
 @media (max-width: 426px) {
