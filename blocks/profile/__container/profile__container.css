@@ -1,11 +1,11 @@
-.ptofile__container {
+.profile__container {
   display: flexbox;
   margin: 0 0 0 30px;
   flex-grow: 10;
 }
 
 @media (max-width: 426px) {
-  .ptofile__container {
+  .profile__container {
     align-self: center;
     max-width: 282px;
     margin: 26px 0 0 22px;
