@@ -9,7 +9,7 @@ const places = [
   {
     title: 'Карачаевск',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/karachaevsk.png',
+    imagePath: './images/karachaevsk.png',
     alt: 'Старый каменный дом на фоне гор и леса'
   },
   {
