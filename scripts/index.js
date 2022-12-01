@@ -10,32 +10,37 @@ const places = [
     title: 'Карачаевск',
     reaction: 'like',
     imagePath: 'https://amattit.github.io/mesto/images/karachaevsk.png',
-    alt: ''
+    alt: 'Старый каменный дом на фоне гор и леса'
   },
   {
     title: 'Гора&nbsp;Эльбрус',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/elbrus.png'
+    imagePath: 'https://amattit.github.io/mesto/images/elbrus.png',
+    alt: 'Вид на гору Эльбрус на закате'
   },
   {
     title: 'Домбай',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/dombay.png'
+    imagePath: 'https://amattit.github.io/mesto/images/dombay.png',
+    alt: 'Вид на скалы и лес'
   },
   {
     title: 'Гора&nbsp;Эльбрус',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/elbrus.png'
+    imagePath: 'https://amattit.github.io/mesto/images/elbrus.png',
+    alt: 'Вид на гору Эльбрус на закате'
   },
   {
     title: 'Домбай',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/dombay.png'
+    imagePath: 'https://amattit.github.io/mesto/images/dombay.png',
+    alt: 'Вид на скалы и лес'
   },
   {
     title: 'Карачаево&nbsp;-&nbsp;Черкесия',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/karachaevsk.png'
+    imagePath: 'https://amattit.github.io/mesto/images/karachaevsk.png',
+    alt: 'Вид на гору Эльбрус на закате'
   },
 ]
 
@@ -53,7 +58,7 @@ let photoGrid = document.querySelector('.gallery__items')
 
 photoGrid.innerHTML = places.map(place => `
   <li class="gallery__item">
-    <img src="${place.imagePath}" alt="Старый каменный дом на фоне гор и леса" class="gallery__photo">
+    <img src="${place.imagePath}" alt="${place.alt}" class="gallery__photo">
     <div class="gallery__title-container">
       <h2 class="gallery__title">${place.title}</h2>
       <button class="gallery__like gallery__like_state_deselected"></button>
