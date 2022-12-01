@@ -15,31 +15,31 @@ const places = [
   {
     title: 'Гора&nbsp;Эльбрус',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/elbrus.png',
+    imagePath: './images/elbrus.png',
     alt: 'Вид на гору Эльбрус на закате'
   },
   {
     title: 'Домбай',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/dombay.png',
+    imagePath: './images/dombay.png',
     alt: 'Вид на скалы и лес'
   },
   {
     title: 'Гора&nbsp;Эльбрус',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/elbrus.png',
+    imagePath: './images/elbrus.png',
     alt: 'Вид на гору Эльбрус на закате'
   },
   {
     title: 'Домбай',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/dombay.png',
+    imagePath: './images/dombay.png',
     alt: 'Вид на скалы и лес'
   },
   {
     title: 'Карачаево&nbsp;-&nbsp;Черкесия',
     reaction: 'like',
-    imagePath: 'https://amattit.github.io/mesto/images/karachaevsk.png',
+    imagePath: './images/karachaevsk.png',
     alt: 'Вид на гору Эльбрус на закате'
   },
 ]
