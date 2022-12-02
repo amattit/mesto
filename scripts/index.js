@@ -1,10 +1,11 @@
 
-// Профиль
+// Profile
 let profile = {
   title: 'Жак-Ив Кусто',
   subtitle: 'Исследователь океана'
 }
 
+// Places
 const places = [
   {
     title: 'Карачаевск',
@@ -44,17 +45,66 @@ const places = [
   },
 ]
 
-function setUserData() {
-  let username = document.querySelector('.profile__title')
-  let profession = document.querySelector('.profile__subtitle')
+// place where i will write all places from placesObject
+let photoGrid = document.querySelector('.gallery__items')
 
+// name of user
+let username = document.querySelector('.profile__title')
+
+// user job title
+let profession = document.querySelector('.profile__subtitle')
+
+// set default user data 
+function setUserData() {
   username.innerText = profile.title
   profession.innerText = profile.subtitle
 }
 
-setUserData()
+// formElemnt :)
+let formElement = document.querySelector('.popup__form')
 
-let photoGrid = document.querySelector('.gallery__items')
+// input where user write name
+let nameInput = formElement.querySelector('.popup__input[name="title"]')
+
+// input where user write job title
+let jobInput = formElement.querySelector('.popup__input[name="subtitle"]')
+
+// edit button
+let editButton = document.querySelector('.profile__edit-button')
+
+// close popup button
+let closePopupButton = document.querySelector('.popup__close')
+
+// handler for save button in form
+function handleFormSubmit(evt) {
+  evt.preventDefault();
+  profile.title = nameInput.value
+  profile.subtitle = jobInput.value
+  setUserData()
+  closePopup()
+}
+
+// show popup window
+function showPopup() {
+  let popup = document.querySelector('.popup')
+  popup.classList.add('popup_opened')
+  nameInput.value = profile.title;
+  jobInput.value = profile.subtitle;
+}
+
+// close popup window
+function closePopup() {
+  let popup = document.querySelector('.popup')
+  popup.classList.remove('popup_opened')
+}
+
+formElement.addEventListener('submit', handleFormSubmit)
+
+editButton.addEventListener('click', showPopup)
+
+closePopupButton.addEventListener('click', closePopup)
+
+setUserData()
 
 photoGrid.innerHTML = places.map(place => `
   <li class="gallery__item">
@@ -66,35 +116,3 @@ photoGrid.innerHTML = places.map(place => `
   </li>
 `)
   .join('')
-
-function handleFormSubmit(evt) {
-  evt.preventDefault();
-  profile.title = nameInput.value
-  profile.subtitle = jobInput.value
-  setUserData()
-  closePopup()
-}
-
-let formElement = document.querySelector('.popup__form')
-let nameInput = formElement.querySelector('.popup__input[name="title"]')
-let jobInput = formElement.querySelector('.popup__input[name="subtitle"]')
-
-formElement.addEventListener('submit', handleFormSubmit)
-
-function showPopup() {
-  let popup = document.querySelector('.popup')
-  popup.classList.add('popup_opened')
-  nameInput.value = profile.title;
-  jobInput.value = profile.subtitle;
-}
-
-function closePopup() {
-  let popup = document.querySelector('.popup')
-  popup.classList.remove('popup_opened')
-}
-
-let editButton = document.querySelector('.profile__edit-button')
-editButton.addEventListener('click', showPopup)
-
-let closePopupButton = document.querySelector('.popup__close')
-closePopupButton.addEventListener('click', closePopup)
