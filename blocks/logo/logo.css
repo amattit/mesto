@@ -1,7 +1,10 @@
 .logo {
+  display: block;
   background-image: url(../../images/logo_white.svg);
   max-width: 142px;
   height: 33px;
   background-size: contain;
   background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
 }

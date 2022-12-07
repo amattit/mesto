@@ -5,7 +5,6 @@
 
 /* header */
 @import url(../blocks/header/header.css);
-@import url(../blocks/header/__divider/header__divider.css);
 
 /* logo */
 @import url(../blocks/logo/logo.css);
