@@ -6,12 +6,15 @@
   height: 32px;
   margin: -40px -40px 0 0;
   background: none;
-  border: none;
   background-image: url(../../../images/closeButton.svg);
+  border: none;
+  background-color: none;
+  outline: none;
 }
 
 .popup__close:hover {
-  opacity: .8;
+  opacity: .6;
+  cursor: pointer;
 }
 
 @media (max-width: 426px) {

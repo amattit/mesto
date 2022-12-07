@@ -8,3 +8,16 @@
   margin: 0;
   padding: 0;
 }
+
+@media (max-width: 918px) {
+  .logo {
+    margin-left: 27px;
+  }
+}
+
+@media (max-width: 426px) {
+  .logo {
+    max-width: 104px;
+    height: 25px;
+  }
+}

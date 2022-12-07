@@ -4,6 +4,8 @@
   margin: 34px 36px 0;
   height: 27px;
   padding: 0;
+  background-color: none;
+  outline: none;
 }
 
 @media (max-width: 426px) {

@@ -6,10 +6,3 @@
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
 }
-
-
-@media (max-width: 918px) {
-  .page {
-    padding: 0 19px;
-  }
-}

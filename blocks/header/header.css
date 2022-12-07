@@ -5,3 +5,12 @@
   padding-bottom: 41px;
   border-bottom: 2px rgba(84, 84, 84, .2) solid;
 }
+
+@media (max-width: 426px) {
+  .header {
+    width: 100%;
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+}
+

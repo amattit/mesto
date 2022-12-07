@@ -4,3 +4,9 @@
   max-width: 880px;
   margin: 0 auto;
 }
+
+@media (max-width: 918px) {
+  .main {
+    padding: 0 19px;
+  }
+}

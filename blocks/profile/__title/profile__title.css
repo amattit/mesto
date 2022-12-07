@@ -4,15 +4,26 @@
   line-height: 48px;
   color: #fff;
   margin: 0;
-  flex-shrink: 10;
+  padding: 0;
+  max-width: 350px;
+  justify-self: start;
   text-overflow: ellipsis;
   overflow: hidden;
+  white-space: nowrap;
 }
+
+@media (max-width: 570px) {
+  .profile__title {
+    max-width: 300px;
+  }
+}
+
 
 @media (max-width: 426px) {
   .profile__title {
     font-size: 27px;
     line-height: 33px;
     text-align: center;
+    max-width: 200px;
   }
 }

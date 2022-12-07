@@ -1,7 +1,15 @@
 .gallery__like {
-  width: 22px;
+  min-width: 22px;
   height: 19px;
   background: none;
 	border: none;
 	padding: 0;
+  background-color: none;
+  outline: 0;
+  cursor: default;
+}
+
+.gallery__like:hover {
+  cursor: pointer;
+  opacity: .5;
 }

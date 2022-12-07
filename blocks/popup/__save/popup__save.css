@@ -2,7 +2,7 @@
   background-color: #000;
   color: #fff;
   margin: 48px 36px 0;
-  height: 50px;
+  min-height: 50px;
   border: none;
   font-size: 18px;
   line-height: 22px;
@@ -11,11 +11,14 @@
 
 .popup__save:hover {
   background-color: rgba(0, 0, 0, .8);
+  cursor: pointer;
 }
 
 @media (max-width: 426px) {
   .popup__save {
     margin: 45px 22px 0;
-    height: 46px;
+    min-height: 46px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
