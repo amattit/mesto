@@ -54,7 +54,7 @@ let username = document.querySelector('.profile__title')
 // user job title
 let profession = document.querySelector('.profile__subtitle')
 
-// set default user data 
+// set default user data
 function setUserData() {
   username.innerText = profile.title
   profession.innerText = profile.subtitle
@@ -64,45 +64,39 @@ function setUserData() {
 let formElement = document.querySelector('.popup__form')
 
 // input where user write name
-let nameInput = formElement.querySelector('.popup__input[name="title"]')
+let nameInput = formElement.querySelector('.popup__input_type_title')
 
 // input where user write job title
-let jobInput = formElement.querySelector('.popup__input[name="subtitle"]')
+let jobInput = formElement.querySelector('.popup__input_type_subtitle')
 
 // edit button
-let editButton = document.querySelector('.profile__edit-button')
+let editButton = document.querySelector('.profile__edit-button');
 
 // close popup button
-let closePopupButton = document.querySelector('.popup__close')
+let closePopupButton = document.querySelector('.popup__close');
 
 // handler for save button in form
 function handleFormSubmit(evt) {
   evt.preventDefault();
-  profile.title = nameInput.value
-  profile.subtitle = jobInput.value
-  setUserData()
-  closePopup()
+  profile.title = nameInput.value;
+  profile.subtitle = jobInput.value;
+  setUserData();
+  closePopup();
 }
 
 // show popup window
 function showPopup() {
-  let popup = document.querySelector('.popup')
-  popup.classList.add('popup_opened')
+  let popup = document.querySelector('.popup');
+  popup.classList.add('popup_opened');
   nameInput.value = profile.title;
   jobInput.value = profile.subtitle;
 }
 
 // close popup window
 function closePopup() {
-  let popup = document.querySelector('.popup')
-  popup.classList.remove('popup_opened')
+  let popup = document.querySelector('.popup');
+  popup.classList.remove('popup_opened');
 }
-
-formElement.addEventListener('submit', handleFormSubmit)
-
-editButton.addEventListener('click', showPopup)
-
-closePopupButton.addEventListener('click', closePopup)
 
 setUserData()
 
@@ -111,8 +105,14 @@ photoGrid.innerHTML = places.map(place => `
     <img src="${place.imagePath}" alt="${place.alt}" class="gallery__photo">
     <div class="gallery__title-container">
       <h2 class="gallery__title">${place.title}</h2>
-      <button class="gallery__like gallery__like_state_deselected"></button>
+      <button type="button" class="gallery__like gallery__like_state_deselected"></button>
     </div>
   </li>
 `)
-  .join('')
+  .join('');
+
+  formElement.addEventListener('submit', handleFormSubmit);
+
+  editButton.addEventListener('click', showPopup);
+
+  closePopupButton.addEventListener('click', closePopup);
