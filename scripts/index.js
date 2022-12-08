@@ -46,22 +46,16 @@ const places = [
 ]
 
 // place where i will write all places from placesObject
-let photoGrid = document.querySelector('.gallery__items')
+let photoGrid = document.querySelector('.gallery__items');
 
 // name of user
-let username = document.querySelector('.profile__title')
+let username = document.querySelector('.profile__title');
 
 // user job title
-let profession = document.querySelector('.profile__subtitle')
-
-// set default user data
-function setUserData() {
-  username.innerText = profile.title
-  profession.innerText = profile.subtitle
-}
+let profession = document.querySelector('.profile__subtitle');
 
 // formElemnt :)
-let formElement = document.querySelector('.popup__form')
+let formElement = document.querySelector('.popup__form');
 
 // input where user write name
 let nameInput = formElement.querySelector('.popup__input_type_title')
@@ -75,6 +69,14 @@ let editButton = document.querySelector('.profile__edit-button');
 // close popup button
 let closePopupButton = document.querySelector('.popup__close');
 
+let popup = document.querySelector('.popup');
+
+// set default user data
+function setUserData() {
+  username.innerText = profile.title
+  profession.innerText = profile.subtitle
+}
+
 // handler for save button in form
 function handleFormSubmit(evt) {
   evt.preventDefault();
@@ -86,7 +88,6 @@ function handleFormSubmit(evt) {
 
 // show popup window
 function showPopup() {
-  let popup = document.querySelector('.popup');
   popup.classList.add('popup_opened');
   nameInput.value = profile.title;
   jobInput.value = profile.subtitle;
@@ -94,7 +95,6 @@ function showPopup() {
 
 // close popup window
 function closePopup() {
-  let popup = document.querySelector('.popup');
   popup.classList.remove('popup_opened');
 }
 

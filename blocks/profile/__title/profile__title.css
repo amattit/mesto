@@ -12,13 +12,6 @@
   white-space: nowrap;
 }
 
-@media (max-width: 570px) {
-  .profile__title {
-    max-width: 300px;
-  }
-}
-
-
 @media (max-width: 426px) {
   .profile__title {
     font-size: 27px;
