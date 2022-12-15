@@ -31,6 +31,7 @@
 @import url(../blocks/gallery/__like/_state/gallery__like_state_deselected.css);
 @import url(../blocks/gallery/__title/gallery__title.css);
 @import url(../blocks/gallery/__photo/gallery__photo.css);
+@import url(../blocks/gallery/__trash/gallery__trash.css);
 
 /* footer */
 @import url(../blocks/footer/footer.css);
@@ -47,3 +48,11 @@
 @import url(../blocks/popup/_opened/popup__opened.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_title.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_subtitle.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__container/_form/popup__container_form_show-mesto.css);
+@import url(../blocks/popup/_form/popup_form_show-mesto.css);
+@import url(../blocks/popup/_form/popup_form_add-mesto.css);
+@import url(../blocks/popup/_form/popup_form_profile.css);
+@import url(../blocks/popup/__close/_form/popup__close_form_add-mesto.css);
+@import url(../blocks/popup/__close/_form/popup__close_form_profile.css);
+@import url(../blocks/popup/__close/_form/popup__close_form_show-mesto.css);

@@ -8,68 +8,116 @@ let profile = {
 // Places
 const places = [
   {
-    title: 'Карачаевск',
+    title: 'Архыз',
     reaction: 'like',
-    imagePath: './images/karachaevsk.png',
+    imagePath: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
     alt: 'Старый каменный дом на фоне гор и леса'
   },
   {
-    title: 'Гора&nbsp;Эльбрус',
+    title: 'Челябинская область',
     reaction: 'like',
-    imagePath: './images/elbrus.png',
+    imagePath: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
     alt: 'Вид на гору Эльбрус на закате'
   },
   {
-    title: 'Домбай',
+    title: 'Иваново',
     reaction: 'like',
-    imagePath: './images/dombay.png',
+    imagePath: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
     alt: 'Вид на скалы и лес'
   },
   {
-    title: 'Гора&nbsp;Эльбрус',
+    title: 'Камчатка',
     reaction: 'like',
-    imagePath: './images/elbrus.png',
+    imagePath: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
     alt: 'Вид на гору Эльбрус на закате'
   },
   {
-    title: 'Домбай',
+    title: 'Холмогорский район',
     reaction: 'like',
-    imagePath: './images/dombay.png',
+    imagePath: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
     alt: 'Вид на скалы и лес'
   },
   {
-    title: 'Карачаево&nbsp;-&nbsp;Черкесия',
+    title: 'Байкал',
     reaction: 'like',
-    imagePath: './images/karachaevsk.png',
+    imagePath: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
     alt: 'Вид на гору Эльбрус на закате'
   },
 ]
 
 // place where i will write all places from placesObject
-let photoGrid = document.querySelector('.gallery__items');
+const photoGrid = document.querySelector('.gallery__items');
 
 // name of user
-let username = document.querySelector('.profile__title');
+const username = document.querySelector('.profile__title');
 
 // user job title
-let profession = document.querySelector('.profile__subtitle');
+const profession = document.querySelector('.profile__subtitle');
 
-// formElemnt :)
-let formElement = document.querySelector('.popup__form');
+// form elemnts :)
+const formEditElement = document.querySelector('.popup__form');
+const formAddMestoElement = document.querySelector('.popup__form_type_add-mesto');
 
-// input where user write name
-let nameInput = formElement.querySelector('.popup__input_type_title')
+// inputs
+const nameInput = formEditElement.querySelector('.popup__input_type_title');
+const jobInput = formEditElement.querySelector('.popup__input_type_subtitle');
+const mestoTitleInput = formAddMestoElement.querySelector('.popup__input_type_mesto');
+const mestoImageInput = formAddMestoElement.querySelector('.popup__input_type_link');
 
-// input where user write job title
-let jobInput = formElement.querySelector('.popup__input_type_subtitle')
+// buttons
+const editButton = document.querySelector('.profile__edit-button');
+const addMestoButton = document.querySelector('.profile__plus-button');
+const closeProfilePopupButton = document.querySelector('.popup__close_form_profile');
+const closeShowMestoPopupButton = document.querySelector('.popup__close_form_show-mesto');
+const closeAddMestoPopupButton = document.querySelector('.popup__close_form_add-mesto');
 
-// edit button
-let editButton = document.querySelector('.profile__edit-button');
+// popup elements
+const profilePopup = document.querySelector('.popup_form_profile');
+const addMestoPopup = document.querySelector('.popup_form_add-mesto');
+const showMestoPopup = document.querySelector('.popup_form_show-mesto');
 
-// close popup button
-let closePopupButton = document.querySelector('.popup__close');
+// templates
+const cardTemplate = document.querySelector('#galleryItemTemplate').content;
 
-let popup = document.querySelector('.popup');
+const createCard = (title, link) => {
+  let card = cardTemplate.cloneNode(true);
+  card.querySelector('.gallery__photo').src = link;
+  card.querySelector('.gallery__title').textContent = title;
+  card.querySelector('.gallery__like').addEventListener('click', addLike);
+  card.querySelector('.gallery__trash').addEventListener('click', deleteCard);
+  card.querySelector('.gallery__photo').addEventListener('click', () => {
+    showMestoPopup.querySelector('.popup__image').src = link;
+    showShowMestoPopup()
+  });
+  photoGrid.prepend(card);
+}
+
+// addCard
+function addCardHandler(evt) {
+  evt.preventDefault();
+  let title = mestoTitleInput.value;
+  let link = mestoImageInput.value;
+  mestoTitleInput.value = '';
+  mestoImageInput.value = '';
+  createCard(title, link);
+  closeAddMestoPopup();
+}
+
+// set like to mesto
+function addLike(evt) {
+  evt
+    .target
+    .classList
+    .toggle('gallery__like_selected');
+}
+
+// Delete mesto
+function deleteCard(evt) {
+  evt
+    .target
+    .closest('.gallery__item')
+    .remove();
+}
 
 // set default user data
 function setUserData() {
@@ -83,36 +131,63 @@ function handleFormSubmit(evt) {
   profile.title = nameInput.value;
   profile.subtitle = jobInput.value;
   setUserData();
-  closePopup();
+  closeProfilePopup();
 }
 
-// show popup window
-function showPopup() {
-  popup.classList.add('popup_opened');
+// MARK: - Profile popup
+function showProfilePopup() {
+  profilePopup.classList.add('popup_opened');
   nameInput.value = profile.title;
   jobInput.value = profile.subtitle;
 }
 
-// close popup window
-function closePopup() {
-  popup.classList.remove('popup_opened');
+function closeProfilePopup() {
+  profilePopup.classList.remove('popup_opened');
+}
+
+// MARK: - Add mesto popup
+function showAddMestoPopup() {
+  addMestoPopup.classList.add('popup_opened');
+}
+
+function closeAddMestoPopup() {
+  addMestoPopup.classList.remove('popup_opened');
+}
+
+// MARK: - Show mesto popup
+function showShowMestoPopup() {
+  console.log('showing popup')
+  showMestoPopup.classList.add('popup_opened');
+  nameInput.value = profile.title;
+  jobInput.value = profile.subtitle;
+}
+
+function closeShowMestoPopup() {
+  showMestoPopup.classList.remove('popup_opened');
+}
+
+function setInitialMesto() {
+  places
+  .reverse()
+  .map(place => {
+    createCard(place.title, place.imagePath);
+  })
 }
 
 setUserData()
 
-photoGrid.innerHTML = places.map(place => `
-  <li class="gallery__item">
-    <img src="${place.imagePath}" alt="${place.alt}" class="gallery__photo">
-    <div class="gallery__title-container">
-      <h2 class="gallery__title">${place.title}</h2>
-      <button type="button" class="gallery__like gallery__like_state_deselected"></button>
-    </div>
-  </li>
-`)
-  .join('');
+setInitialMesto()
 
-  formElement.addEventListener('submit', handleFormSubmit);
+formEditElement.addEventListener('submit', handleFormSubmit);
 
-  editButton.addEventListener('click', showPopup);
+formAddMestoElement.addEventListener('submit', addCardHandler);
 
-  closePopupButton.addEventListener('click', closePopup);
+editButton.addEventListener('click', showProfilePopup);
+
+closeProfilePopupButton.addEventListener('click', closeProfilePopup);
+
+closeAddMestoPopupButton.addEventListener('click', closeAddMestoPopup);
+
+closeShowMestoPopupButton.addEventListener('click', closeShowMestoPopup);
+
+addMestoButton.addEventListener('click', showAddMestoPopup);

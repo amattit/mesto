@@ -4,8 +4,8 @@
   line-height: 23px;
   color: #000;
   margin: 0;
-  /* FIXME: one line */
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 

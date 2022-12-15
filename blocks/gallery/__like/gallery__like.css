@@ -7,6 +7,7 @@
   background-color: none;
   outline: 0;
   cursor: default;
+  background-image: url(../../../images/like_inactive.svg);
 }
 
 .gallery__like:hover {

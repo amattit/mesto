@@ -1,0 +1,16 @@
+.popup__container_form_show-mesto {
+  justify-content: center;
+  display: flex;
+  background: none;
+  max-width: 75vw;
+  max-height: 75vw;
+  min-width: 220px;
+  max-height: 540px;
+}
+
+@media (max-width: 425px) {
+  .popup__container_form_show-mesto {
+    justify-content: center;
+    min-width: 240px;
+  }
+}

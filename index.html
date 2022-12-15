@@ -15,7 +15,8 @@
   </header>
   <main class="main">
     <section class="profile">
-      <img src="./images/profile.png" alt="Пожилой мужчина в красной шапке и очках на фоне моря" class="profile__avatar">
+      <img src="./images/profile.png" alt="Пожилой мужчина в красной шапке и очках на фоне моря"
+        class="profile__avatar">
       <div class="profile__container">
         <div class="profile__title-container">
           <h1 class="profile__title"></h1>
@@ -29,9 +30,11 @@
       <ul class="gallery__items">
       </ul>
     </section>
-    <section class="popup">
+
+    <!-- Попап профиля -->
+    <section class="popup popup_form_profile">
       <div class="popup__container">
-        <button type="button" class="popup__close"></button>
+        <button type="button" class="popup__close popup__close_form_profile"></button>
         <form action="#" class="popup__form" name="editProfile">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input id="title" type="text" name="title" class="popup__input popup__input_type_title">
@@ -39,12 +42,44 @@
           <button type="submit" class="popup__save">Сохранить</button>
         </form>
       </div>
+    </section>
 
+    <!-- Попап добавления фотки -->
+    <section class="popup popup_form_add-mesto">
+      <div class="popup__container">
+        <button type="button" class="popup__close popup__close_form_add-mesto"></button>
+        <form action="#" class="popup__form popup__form_type_add-mesto" name="editProfile">
+          <h2 class="popup__title">Новое место</h2>
+          <input id="title" type="text" name="title" class="popup__input popup__input_type_mesto"
+            placeholder="Название">
+          <input id="subtitle" type="text" name="subtitle" class="popup__input popup__input_type_link"
+            placeholder="Ссылка на картинку">
+          <button type="submit" class="popup__save popup__save_type_mesto">Создать</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Попап просмотра фотки -->
+    <section class="popup popup_form_show-mesto">
+      <div class="popup__container popup__container_form_show-mesto">
+        <button type="button" class="popup__close popup__close_form_show-mesto"></button>
+        <img src="" alt="" class="popup__image">
+      </div>
     </section>
   </main>
   <footer class="footer">
     <h2 class="footer__title">© 2020 Mesto Russia</h2>
   </footer>
+  <template id="galleryItemTemplate">
+    <li class="gallery__item">
+      <img class="gallery__photo">
+      <div class="gallery__title-container">
+        <h2 class="gallery__title"></h2>
+        <button type="button" class="gallery__like"></button>
+        <button type="button" class="gallery__trash"></button>
+      </div>
+    </li>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 
