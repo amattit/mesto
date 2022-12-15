@@ -87,6 +87,7 @@ const createCard = (title, link) => {
   card.querySelector('.gallery__trash').addEventListener('click', deleteCard);
   card.querySelector('.gallery__photo').addEventListener('click', () => {
     showMestoPopup.querySelector('.popup__image').src = link;
+    showMestoPopup.querySelector('.popup__subtitle').textContent = title;
     showShowMestoPopup()
   });
   photoGrid.prepend(card);

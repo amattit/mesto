@@ -1,6 +1,6 @@
 .popup__container_form_show-mesto {
   justify-content: center;
-  display: flex;
+  flex-flow: column nowrap;
   background: none;
   max-width: 75vw;
   max-height: 75vw;
