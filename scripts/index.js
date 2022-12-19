@@ -1,6 +1,6 @@
 
 // Profile
-let profile = {
+const profile = {
   title: 'Жак-Ив Кусто',
   subtitle: 'Исследователь океана'
 }
@@ -67,41 +67,32 @@ const mestoImageInput = formAddMestoElement.querySelector('.popup__input_type_li
 // buttons
 const editButton = document.querySelector('.profile__edit-button');
 const addMestoButton = document.querySelector('.profile__plus-button');
-const closeProfilePopupButton = document.querySelector('.popup__close_form_profile');
-const closeShowMestoPopupButton = document.querySelector('.popup__close_form_show-mesto');
-const closeAddMestoPopupButton = document.querySelector('.popup__close_form_add-mesto');
+const closeButtons = document.querySelectorAll('.popup__close');
 
 // popup elements
 const profilePopup = document.querySelector('.popup_form_profile');
 const addMestoPopup = document.querySelector('.popup_form_add-mesto');
 const showMestoPopup = document.querySelector('.popup_form_show-mesto');
+const mestoPopupImage = showMestoPopup.querySelector('.popup__image');
+const mestoPopupSubtitle = showMestoPopup.querySelector('.popup__subtitle');
 
 // templates
 const cardTemplate = document.querySelector('#galleryItemTemplate').content;
 
 const createCard = (title, link) => {
-  let card = cardTemplate.cloneNode(true);
+  const card = cardTemplate.cloneNode(true);
   card.querySelector('.gallery__photo').src = link;
+  card.querySelector('.gallery__photo').alt = title;
   card.querySelector('.gallery__title').textContent = title;
   card.querySelector('.gallery__like').addEventListener('click', addLike);
   card.querySelector('.gallery__trash').addEventListener('click', deleteCard);
   card.querySelector('.gallery__photo').addEventListener('click', () => {
-    showMestoPopup.querySelector('.popup__image').src = link;
-    showMestoPopup.querySelector('.popup__subtitle').textContent = title;
-    showShowMestoPopup()
+    mestoPopupImage.src = link;
+    mestoPopupImage.alt = title;
+    mestoPopupSubtitle.textContent = title;
+    openPopup(showMestoPopup);
   });
-  photoGrid.prepend(card);
-}
-
-// addCard
-function addCardHandler(evt) {
-  evt.preventDefault();
-  let title = mestoTitleInput.value;
-  let link = mestoImageInput.value;
-  mestoTitleInput.value = '';
-  mestoImageInput.value = '';
-  createCard(title, link);
-  closeAddMestoPopup();
+  return card
 }
 
 // set like to mesto
@@ -120,59 +111,51 @@ function deleteCard(evt) {
     .remove();
 }
 
+function appendCardToPhotoGrid(card) {
+  photoGrid.append(card)
+}
+
+function prependCardToPhotoGrid(card) {
+  photoGrid.prepend(card)
+}
+
 // set default user data
 function setUserData() {
   username.innerText = profile.title
   profession.innerText = profile.subtitle
 }
 
+// Handlers
 // handler for save button in form
 function handleFormSubmit(evt) {
   evt.preventDefault();
   profile.title = nameInput.value;
   profile.subtitle = jobInput.value;
   setUserData();
-  closeProfilePopup();
+  closePopup(profilePopup);
 }
 
-// MARK: - Profile popup
-function showProfilePopup() {
-  profilePopup.classList.add('popup_opened');
-  nameInput.value = profile.title;
-  jobInput.value = profile.subtitle;
-}
-
-function closeProfilePopup() {
-  profilePopup.classList.remove('popup_opened');
-}
-
-// MARK: - Add mesto popup
-function showAddMestoPopup() {
-  addMestoPopup.classList.add('popup_opened');
-}
-
-function closeAddMestoPopup() {
-  addMestoPopup.classList.remove('popup_opened');
-}
-
-// MARK: - Show mesto popup
-function showShowMestoPopup() {
-  console.log('showing popup')
-  showMestoPopup.classList.add('popup_opened');
-  nameInput.value = profile.title;
-  jobInput.value = profile.subtitle;
-}
-
-function closeShowMestoPopup() {
-  showMestoPopup.classList.remove('popup_opened');
+function addCardHandler(evt) {
+  evt.preventDefault();
+  const title = mestoTitleInput.value;
+  const link = mestoImageInput.value;
+  evt.target.reset()
+  prependCardToPhotoGrid(createCard(title, link));
+  closePopup(addMestoPopup);
 }
 
 function setInitialMesto() {
-  places
-  .reverse()
-  .map(place => {
-    createCard(place.title, place.imagePath);
+  places.forEach(place => {
+    appendCardToPhotoGrid(createCard(place.title, place.imagePath));
   })
+}
+
+function openPopup(popup) {
+  popup.classList.add('popup_opened')
+}
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
 
 setUserData()
@@ -183,12 +166,17 @@ formEditElement.addEventListener('submit', handleFormSubmit);
 
 formAddMestoElement.addEventListener('submit', addCardHandler);
 
-editButton.addEventListener('click', showProfilePopup);
+editButton.addEventListener('click', () => {
+  nameInput.value = profile.title;
+  jobInput.value = profile.subtitle;
+  openPopup(profilePopup);
+});
 
-closeProfilePopupButton.addEventListener('click', closeProfilePopup);
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup')
+  button.addEventListener('click', () => closePopup(popup));
+});
 
-closeAddMestoPopupButton.addEventListener('click', closeAddMestoPopup);
-
-closeShowMestoPopupButton.addEventListener('click', closeShowMestoPopup);
-
-addMestoButton.addEventListener('click', showAddMestoPopup);
+addMestoButton.addEventListener('click', () => {
+  openPopup(addMestoPopup);
+});
